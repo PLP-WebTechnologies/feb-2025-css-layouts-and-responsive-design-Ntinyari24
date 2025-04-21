@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(173, 133, 59);
+}
+
+.container {
+    padding-top: 100px; /* account for fixed header */
+}
+
+.header {
+    background-color: rgb(83, 44, 44);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.main-layout {
+    display: flex;
+}
+
+.nav-bar {
+    background-color: #4d3120; /* Warm orange tone */
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 90px; /* Adjusted to account for header height */
+    left: 0;
+    width: 200px; /* Fixed width for the sidebar */
+    height: calc(100vh - 100px); /* Full height minus header height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+ 
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    flex-direction: column; 
+    align-items: center;/* Align items in a row */
+}
+
+.nav-bar li {
+    margin: 0 1rem;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-bar a:hover {
+    background-color: #221c17;
+    transform: scale(1.05);
+}
+
+.nav-bar a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+
+
+
+.nav-bar ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: #f29090;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 140px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-bar ul li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-bar ul li a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-bar ul li a.active:hover {
+    background-color: #4a2b2b;
+    color: #333;
+}
+
+.nav-bar ul li a.active:before {
+    content: "→";
+    margin-right: 5px;
+}
+
+.nav-bar ul li a.active:after {
+    content: "←";
+    margin-left: 5px;
+}
+
+
+.content {
+    margin-left: 300px; /* leaves space for nav-bar */
+    padding: 20px;
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: rgb(99, 11, 14);
+    text-align: center;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: rgb(10, 10, 10);
+    text-align: center;
+}
+
+.container-dishes,
+.container-smoothies,
+.container-cocktails,
+.container-pastries {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-left: 220px;
+    margin-top: 20px;
+}
+
+.container-dishes div,
+.container-smoothies div,
+.container-cocktails div,
+.container-pastries div {
+    background-color: #e0784f;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.container-dishes h1,
+.container-smoothies h1,
+.container-cocktails h1,
+.container-pastries h1 {
+    font-size: 1.2em;
+    color: #020202;
+    margin-bottom: 10px;
+}
+
+.container-dishes p,
+.container-smoothies p,
+.container-cocktails p,
+.container-pastries p {
+    font-size: 0.95em;
+    color: #00141c;
+}
+
+/* ✅ Corrected Media Queries */
+@media (max-width: 768px) {
+    .nav-bar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav-bar ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-bar ul li {
+        margin: 5px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .container-dishes,
+    .container-smoothies,
+    .container-cocktails,
+    .container-pastries {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar ul li {
+        margin: 5px 0;
+    }
+
+    .container-dishes,
+    .container-smoothies,
+    .container-cocktails,
+    .container-pastries {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .container-cocktails {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
